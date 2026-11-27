@@ -1,5 +1,5 @@
 const test = require('node:test');
-// const assert = require('node:assert/strict');
+const assert = require('node:assert/strict');
 const { validateTitle, createService } = require('../../src/taskService');
 const { memoryRepository } = require('../../src/repositories');
 test('rechaza título vacío', () => assert.throws(() => validateTitle('  '), /no vacío/));
