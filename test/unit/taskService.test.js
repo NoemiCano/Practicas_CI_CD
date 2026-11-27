@@ -5,7 +5,7 @@ const { memoryRepository } = require('../../src/repositories');
 test('rechaza título vacío', () => assert.throws(() => validateTitle('  '), /no vacío/));
 test('recorta título y crea tarea', async () => {
   const service = createService(memoryRepository());
-  const created = await service.create({ title: '  CI/CD  ' });
+  const created = await service.create({ title: '    ' });
   assert.equal(created.title, 'CI/CD');
   assert.equal((await service.list()).length, 1);
 });
