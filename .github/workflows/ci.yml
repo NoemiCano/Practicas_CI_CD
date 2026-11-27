@@ -15,19 +15,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Descargar el codigo
-        uses: actions/checkout@v4
-      - name: Preparar Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: npm
-      - name: Instalar dependencias
-        run: npm ci
-      - name: Ejecutar Lint
-        run: npm run lint
-      - name: Comprobar formato
-        run: npm run format:check
-      - name: Ejecutar tests
-        run: npm run test:unit
+    - name: Instalar dependencias
+      run: npm ci
+    - name: Ejecutar Lint
+      run: npm run lint
+    - name: Comprobar formato
+      run: npm run format:check
+    - name: Ejecutar tests
+      run: npm run test:unit
+    - name: Descargar el codigo
+      uses: actions/checkout@v4
+    - name: Preparar Node
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: .nvmrc
+        cache: npm
       # TODO: tres steps distintos: lint, format:check y test:unit
