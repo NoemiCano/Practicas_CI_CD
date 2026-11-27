@@ -15,14 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-    - name: Instalar dependencias
-      run: npm ci
-    - name: Ejecutar Lint
-      run: npm run lint
-    - name: Comprobar formato
-      run: npm run format:check
-    - name: Ejecutar tests
-      run: npm run test:unit
     - name: Descargar el codigo
       uses: actions/checkout@v4
     - name: Preparar Node
@@ -30,4 +22,14 @@ jobs:
       with:
         node-version-file: .nvmrc
         cache: npm
+    - name: Instalar dependencias
+      run: npm ci
+    - name: Ejecutar Lint
+      run: npm run lint
+    - name: Prettier
+      run: npx prettier . --write
+    - name: Comprobar formato
+      run: npm run format:check
+    - name: Ejecutar tests
+      run: npm run test:unit
       # TODO: tres steps distintos: lint, format:check y test:unit
