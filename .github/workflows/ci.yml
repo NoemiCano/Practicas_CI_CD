@@ -32,4 +32,3 @@ jobs:
       run: npm run format:check
     - name: Ejecutar tests
       run: npm run test:unit
-      # TODO: tres steps distintos: lint, format:check y test:unit
