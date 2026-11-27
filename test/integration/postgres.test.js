@@ -4,7 +4,7 @@ const { PostgreSqlContainer } = require('@testcontainers/postgresql');
 const { postgresRepository } = require('../../src/repositories');
 const { createService } = require('../../src/taskService');
 test('la API de datos funciona con PostgreSQL real', { timeout: 120000 }, async () => {
-  // let container;
+  let container;
   let url = process.env.TEST_DATABASE_URL;
   if (!url) {
     container = await new PostgreSqlContainer('postgres:16-alpine').start();
